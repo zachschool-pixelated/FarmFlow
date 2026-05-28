@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #c1c9c3;
+        border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #95a098;
+    }
+}
+
+@layer components {
+    /* Stat card hover lift */
+    .stat-card {
+        @apply transition-all duration-300 ease-out;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px -8px rgba(45, 106, 79, 0.15);
+    }
+
+    /* Table row hover */
+    .table-row-hover {
+        @apply transition-colors duration-150;
+    }
+
+    .table-row-hover:hover {
+        @apply bg-farm-50/50 dark:bg-gray-700/50;
+    }
+
+    /* Action link styles */
+    .action-link-edit {
+        @apply inline-flex items-center gap-1 text-sm font-medium text-farm-700 dark:text-farm-400 hover:text-farm-800 dark:hover:text-farm-300 transition-colors duration-150;
+    }
+
+    .action-link-delete {
+        @apply inline-flex items-center gap-1 text-sm font-medium text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 transition-colors duration-150;
+    }
+
+    /* Page header */
+    .page-header-btn {
+        @apply inline-flex items-center gap-2 rounded-xl bg-farm-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-farm-800 focus:outline-none focus:ring-2 focus:ring-farm-500 focus:ring-offset-2 transition-all duration-200;
+    }
+
+    /* Cancel/secondary button */
+    .btn-secondary {
+        @apply inline-flex items-center rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150;
+    }
+}
+
+@layer utilities {
+    .animate-fade-in {
+        animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Global Dark Mode Hover Overrides */
+.dark .hover\:bg-gray-50:hover {
+    background-color: rgba(55, 65, 81, 0.5) !important; /* gray-700/50 */
+}
+.dark .hover\:bg-emerald-50:hover {
+    background-color: rgba(16, 185, 129, 0.15) !important; /* emerald-950/30 */
+}
+.dark .hover\:bg-white:hover {
+    background-color: rgba(55, 65, 81, 0.5) !important;
+}
+
